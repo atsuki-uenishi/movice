@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80488BD867000BDCE62C8D07 /* Pods_movice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C38B2989B3FFE255C90461E /* Pods_movice.framework */; };
+		900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */; };
 		90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297528C2D58D00C8F76C /* AppDelegate.swift */; };
 		90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297728C2D58D00C8F76C /* SceneDelegate.swift */; };
-		90A7297A28C2D58D00C8F76C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297928C2D58D00C8F76C /* ViewController.swift */; };
+		90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297928C2D58D00C8F76C /* SearchViewController.swift */; };
 		90A7297D28C2D58D00C8F76C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A7297B28C2D58D00C8F76C /* Main.storyboard */; };
 		90A7297F28C2D58F00C8F76C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90A7297E28C2D58F00C8F76C /* Assets.xcassets */; };
 		90A7298228C2D58F00C8F76C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90A7298028C2D58F00C8F76C /* LaunchScreen.storyboard */; };
+		90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7298F28C5882300C8F76C /* WatchListViewController.swift */; };
+		90A7299228C6C52900C8F76C /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299128C6C52900C8F76C /* MovieData.swift */; };
+		90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C38B2989B3FFE255C90461E /* Pods_movice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataRepository.swift; sourceTree = "<group>"; };
 		90A7297228C2D58D00C8F76C /* movice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A7297528C2D58D00C8F76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A7297728C2D58D00C8F76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		90A7297928C2D58D00C8F76C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90A7297928C2D58D00C8F76C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		90A7297C28C2D58D00C8F76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		90A7297E28C2D58F00C8F76C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90A7298128C2D58F00C8F76C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90A7298328C2D58F00C8F76C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90A7298F28C5882300C8F76C /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
+		90A7299128C6C52900C8F76C /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
+		90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiManager.swift; sourceTree = "<group>"; };
+		A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.release.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.release.xcconfig"; sourceTree = "<group>"; };
+		DC7B2D700E547EEC9D6E85AC /* Pods-movice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.debug.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80488BD867000BDCE62C8D07 /* Pods_movice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77DCB6D4B88ECB7A9BC6999A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC7B2D700E547EEC9D6E85AC /* Pods-movice.debug.xcconfig */,
+				A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		90A7296928C2D58D00C8F76C = {
 			isa = PBXGroup;
 			children = (
 				90A7297428C2D58D00C8F76C /* movice */,
 				90A7297328C2D58D00C8F76C /* Products */,
+				77DCB6D4B88ECB7A9BC6999A /* Pods */,
+				CF917D5A4489C033B4C95D84 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +82,49 @@
 			children = (
 				90A7297528C2D58D00C8F76C /* AppDelegate.swift */,
 				90A7297728C2D58D00C8F76C /* SceneDelegate.swift */,
-				90A7297928C2D58D00C8F76C /* ViewController.swift */,
-				90A7297B28C2D58D00C8F76C /* Main.storyboard */,
+				90A7298C28C2D61500C8F76C /* Model */,
+				90A7298B28C2D60200C8F76C /* View */,
+				90A7298A28C2D5F100C8F76C /* Controller */,
 				90A7297E28C2D58F00C8F76C /* Assets.xcassets */,
 				90A7298028C2D58F00C8F76C /* LaunchScreen.storyboard */,
 				90A7298328C2D58F00C8F76C /* Info.plist */,
 			);
 			path = movice;
+			sourceTree = "<group>";
+		};
+		90A7298A28C2D5F100C8F76C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				90A7297928C2D58D00C8F76C /* SearchViewController.swift */,
+				90A7298F28C5882300C8F76C /* WatchListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		90A7298B28C2D60200C8F76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				90A7297B28C2D58D00C8F76C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		90A7298C28C2D61500C8F76C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90A7299128C6C52900C8F76C /* MovieData.swift */,
+				90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */,
+				900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF917D5A4489C033B4C95D84 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C38B2989B3FFE255C90461E /* Pods_movice.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90A7298628C2D58F00C8F76C /* Build configuration list for PBXNativeTarget "movice" */;
 			buildPhases = (
+				BCB194DD984A72867C86C535 /* [CP] Check Pods Manifest.lock */,
 				90A7296E28C2D58D00C8F76C /* Sources */,
 				90A7296F28C2D58D00C8F76C /* Frameworks */,
 				90A7297028C2D58D00C8F76C /* Resources */,
+				61201F3D041D099A1E8D7336 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,13 +195,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		61201F3D041D099A1E8D7336 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-movice/Pods-movice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-movice/Pods-movice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movice/Pods-movice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCB194DD984A72867C86C535 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-movice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90A7296E28C2D58D00C8F76C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90A7297A28C2D58D00C8F76C /* ViewController.swift in Sources */,
+				90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */,
 				90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */,
+				90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */,
+				900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */,
+				90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */,
+				90A7299228C6C52900C8F76C /* MovieData.swift in Sources */,
 				90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +390,7 @@
 		};
 		90A7298728C2D58F00C8F76C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC7B2D700E547EEC9D6E85AC /* Pods-movice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +403,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +419,7 @@
 		};
 		90A7298828C2D58F00C8F76C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +432,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
