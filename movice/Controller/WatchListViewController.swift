@@ -6,14 +6,14 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WatchListViewController: UIViewController {
 
+    let realm = try! Realm()
+    var watchlist: Results<WatchlistData>?
     
     @IBOutlet weak var tableView: UITableView!
-    
-    let listData:[String] = ["cell_1","cell_2","cell_3","cell_4","cell_5"]
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,27 @@ class WatchListViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadWatchlist()
+    }
+    
+    func loadWatchlist() {
+        watchlist = realm.objects(WatchlistData.self)
+        tableView.reloadData()
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! DetailViewController
+        
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let watchlistMoive = watchlist![indexPath.row]
+            let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
+            destinationVC.selectedMoive = movieDataConversion
+        }
+    }
 
 
 }
@@ -36,25 +56,27 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
       }
       
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listData.count
+        return watchlist?.count ?? 1
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+          let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath)
           
-         cell.imageView?.image = UIImage(named: "header")
-          
-//         let image = cell.contentView.viewWithTag(1) as! UIImageView
-//
-//         image.image = UIImage(named: <#T##String#>)
-          
-//         let label = cell.contentView.viewWithTag(2) as! UILabel
-//
-//         label.text = listData[indexPath.row]
-          
-          cell.textLabel?.text = listData[indexPath.row]
+
+          if let safeWatchlist = watchlist {
+              let image = cell.contentView.viewWithTag(1) as! UIImageView
+              let label = cell.contentView.viewWithTag(2) as! UILabel
+              image.image = getImageByUrl().getImageByUrl(url: safeWatchlist[indexPath.row].poster, dark: true, size: "154")
+              label.text = safeWatchlist[indexPath.row].title
+          }
         
         return cell
       }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToDetail", sender: self)
+    }
+    
+    
     
 }

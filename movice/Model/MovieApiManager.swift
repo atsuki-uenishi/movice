@@ -12,7 +12,6 @@ import Moya
 
 enum MovieApiManager {
     case getMovieTitle(title: String)
-//    case getMovie()
 }
  
 extension MovieApiManager: TargetType {

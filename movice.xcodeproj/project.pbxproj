@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		80488BD867000BDCE62C8D07 /* Pods_movice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C38B2989B3FFE255C90461E /* Pods_movice.framework */; };
 		900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */; };
+		9084877A28CA21350036135E /* WatchlistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084877928CA21350036135E /* WatchlistData.swift */; };
 		90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297528C2D58D00C8F76C /* AppDelegate.swift */; };
 		90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297728C2D58D00C8F76C /* SceneDelegate.swift */; };
 		90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297928C2D58D00C8F76C /* SearchViewController.swift */; };
@@ -18,11 +19,14 @@
 		90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7298F28C5882300C8F76C /* WatchListViewController.swift */; };
 		90A7299228C6C52900C8F76C /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299128C6C52900C8F76C /* MovieData.swift */; };
 		90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */; };
+		90DEE38828C9B60C005D2CC3 /* GetImageByUrlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */; };
+		90DEE38A28C9BD67005D2CC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C38B2989B3FFE255C90461E /* Pods_movice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataRepository.swift; sourceTree = "<group>"; };
+		9084877928CA21350036135E /* WatchlistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistData.swift; sourceTree = "<group>"; };
 		90A7297228C2D58D00C8F76C /* movice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A7297528C2D58D00C8F76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A7297728C2D58D00C8F76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +38,8 @@
 		90A7298F28C5882300C8F76C /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		90A7299128C6C52900C8F76C /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiManager.swift; sourceTree = "<group>"; };
+		90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageByUrlController.swift; sourceTree = "<group>"; };
+		90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.release.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.release.xcconfig"; sourceTree = "<group>"; };
 		DC7B2D700E547EEC9D6E85AC /* Pods-movice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.debug.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +103,8 @@
 			children = (
 				90A7297928C2D58D00C8F76C /* SearchViewController.swift */,
 				90A7298F28C5882300C8F76C /* WatchListViewController.swift */,
+				90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */,
+				90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 				90A7299128C6C52900C8F76C /* MovieData.swift */,
 				90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */,
 				900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */,
+				9084877928CA21350036135E /* WatchlistData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,11 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90DEE38A28C9BD67005D2CC3 /* DetailViewController.swift in Sources */,
 				90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */,
 				90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */,
 				90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */,
 				900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */,
+				9084877A28CA21350036135E /* WatchlistData.swift in Sources */,
 				90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */,
+				90DEE38828C9B60C005D2CC3 /* GetImageByUrlController.swift in Sources */,
 				90A7299228C6C52900C8F76C /* MovieData.swift in Sources */,
 				90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */,
 			);

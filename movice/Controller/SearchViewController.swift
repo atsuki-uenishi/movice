@@ -50,20 +50,47 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath)
         
+        let movieInformation = searchResult[indexPath.row]
+        
         let image = cell.contentView.viewWithTag(1) as! UIImageView
         
-
-        image.image = getImageByUrl(url: searchResult[indexPath.row].poster_path, dark: true)
-        
-        
+        image.image = getImageByUrl().getImageByUrl(url: movieInformation.poster_path, dark: true, size: "154")
         
         let label = cell.contentView.viewWithTag(2) as! UILabel
     
-        label.text = searchResult[indexPath.row].title
+        label.text = movieInformation.title
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movieInformation = searchResult[indexPath.row]
+        
+        performSegue(withIdentifier: "toDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DetailViewController
+        
+        if let indexPath = collectionView.indexPathsForSelectedItems {
+            destinationVC.selectedMoive = searchResult[indexPath[0][1]]
+         
+        }
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let title = searchBar.text {
+            getMovieData(title: title)
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+    
+    //映画情報の取得
     func getMovieData(title: String) {
         movieDataRepository.getMoiveData(title: title) { [weak self] result in
             guard let self = self else {return}
@@ -73,68 +100,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 self.collectionView.reloadData()
             case .failure(let moyaError):
                 print(moyaError.localizedDescription)
-            }
-        }
-    }
-    
-    func getImageByUrl(url: String, dark: Bool) -> UIImage{
-        let posterSizeUrl = "https://image.tmdb.org/t/p/w154"
-        let url = URL(string: posterSizeUrl+url)
-        do {
-            let data = try Data(contentsOf: url!)
-            if !dark {
-                return UIImage(data: data)!
-            }
-            return darken(image: UIImage(data: data)!, level: 0.5)
-        } catch let err {
-            print("Error : \(err.localizedDescription)")
-        }
-        return UIImage()
-    }
-    
-    //画像を暗くする
-    func darken(image:UIImage, level:CGFloat) -> UIImage{
-
-            let frame = CGRect(origin:CGPoint(x:0,y:0),size:image.size)
-            let tempView = UIView(frame:frame)
-            tempView.backgroundColor = UIColor.black
-            tempView.alpha = level
-
-            UIGraphicsBeginImageContext(frame.size)
-            let context = UIGraphicsGetCurrentContext()
-            image.draw(in: frame)
-
-            context!.translateBy(x: 0, y: frame.size.height)
-            context!.scaleBy(x: 1.0, y: -1.0)
-            context!.clip(to: frame, mask: image.cgImage!)
-            tempView.layer.render(in: context!)
-
-            let imageRef = context!.makeImage()
-            let toReturn = UIImage(cgImage:imageRef!)
-            UIGraphicsEndImageContext()
-            return toReturn
-
-        }
-    
-    
-    
-    
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let title = searchBar.text {
-            getMovieData(title: title)
-        }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count == 0 {
-//            loadItems()
-
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
             }
         }
     }
