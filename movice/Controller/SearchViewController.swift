@@ -48,13 +48,15 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as UICollectionViewCell? else {
+            return UICollectionViewCell()
+        }
         
         let movieInformation = searchResult[indexPath.row]
         
         let image = cell.contentView.viewWithTag(1) as! UIImageView
         
-        image.image = getImageByUrl().getImageByUrl(url: movieInformation.poster_path, dark: true, size: "154")
+        image.image = ImageUtil().getImageByUrl(url: movieInformation.poster_path, dark: true, size: "154")
         
         let label = cell.contentView.viewWithTag(2) as! UILabel
     
@@ -64,7 +66,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movieInformation = searchResult[indexPath.row]
         
         performSegue(withIdentifier: "toDetail", sender: self)
     }

@@ -60,15 +60,17 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath)
-          
-
-          if let safeWatchlist = watchlist {
-              let image = cell.contentView.viewWithTag(1) as! UIImageView
-              let label = cell.contentView.viewWithTag(2) as! UILabel
-              image.image = getImageByUrl().getImageByUrl(url: safeWatchlist[indexPath.row].poster, dark: true, size: "154")
-              label.text = safeWatchlist[indexPath.row].title
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath) as UITableViewCell?,
+          let safeWatchlist = watchlist
+          else {
+              return UITableViewCell()
           }
+        
+          let image = cell.contentView.viewWithTag(1) as! UIImageView
+          let label = cell.contentView.viewWithTag(2) as! UILabel
+          
+          image.image = ImageUtil().getImageByUrl(url: safeWatchlist[indexPath.row].poster, dark: true, size: "154")
+          label.text = safeWatchlist[indexPath.row].title
         
         return cell
       }

@@ -10,6 +10,7 @@
 		80488BD867000BDCE62C8D07 /* Pods_movice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C38B2989B3FFE255C90461E /* Pods_movice.framework */; };
 		900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */; };
 		9084877A28CA21350036135E /* WatchlistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084877928CA21350036135E /* WatchlistData.swift */; };
+		9084878928D5D3100036135E /* DarkenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084878828D5D3100036135E /* DarkenImage.swift */; };
 		90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297528C2D58D00C8F76C /* AppDelegate.swift */; };
 		90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297728C2D58D00C8F76C /* SceneDelegate.swift */; };
 		90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297928C2D58D00C8F76C /* SearchViewController.swift */; };
@@ -19,7 +20,7 @@
 		90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7298F28C5882300C8F76C /* WatchListViewController.swift */; };
 		90A7299228C6C52900C8F76C /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299128C6C52900C8F76C /* MovieData.swift */; };
 		90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */; };
-		90DEE38828C9B60C005D2CC3 /* GetImageByUrlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */; };
+		90DEE38828C9B60C005D2CC3 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEE38728C9B60C005D2CC3 /* ImageUtil.swift */; };
 		90DEE38A28C9BD67005D2CC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		5C38B2989B3FFE255C90461E /* Pods_movice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataRepository.swift; sourceTree = "<group>"; };
 		9084877928CA21350036135E /* WatchlistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistData.swift; sourceTree = "<group>"; };
+		9084878828D5D3100036135E /* DarkenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkenImage.swift; sourceTree = "<group>"; };
 		90A7297228C2D58D00C8F76C /* movice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A7297528C2D58D00C8F76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A7297728C2D58D00C8F76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +40,7 @@
 		90A7298F28C5882300C8F76C /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		90A7299128C6C52900C8F76C /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		90A7299328C6C6AF00C8F76C /* MovieApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiManager.swift; sourceTree = "<group>"; };
-		90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetImageByUrlController.swift; sourceTree = "<group>"; };
+		90DEE38728C9B60C005D2CC3 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.release.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.release.xcconfig"; sourceTree = "<group>"; };
 		DC7B2D700E547EEC9D6E85AC /* Pods-movice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movice.debug.xcconfig"; path = "Target Support Files/Pods-movice/Pods-movice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +65,15 @@
 				A65EEB944FC803BC4F26D4D5 /* Pods-movice.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9084878728D5D1F30036135E /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				90DEE38728C9B60C005D2CC3 /* ImageUtil.swift */,
+				9084878828D5D3100036135E /* DarkenImage.swift */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		90A7296928C2D58D00C8F76C = {
@@ -91,6 +102,7 @@
 				90A7298C28C2D61500C8F76C /* Model */,
 				90A7298B28C2D60200C8F76C /* View */,
 				90A7298A28C2D5F100C8F76C /* Controller */,
+				9084878728D5D1F30036135E /* Lib */,
 				90A7297E28C2D58F00C8F76C /* Assets.xcassets */,
 				90A7298028C2D58F00C8F76C /* LaunchScreen.storyboard */,
 				90A7298328C2D58F00C8F76C /* Info.plist */,
@@ -103,7 +115,6 @@
 			children = (
 				90A7297928C2D58D00C8F76C /* SearchViewController.swift */,
 				90A7298F28C5882300C8F76C /* WatchListViewController.swift */,
-				90DEE38728C9B60C005D2CC3 /* GetImageByUrlController.swift */,
 				90DEE38928C9BD67005D2CC3 /* DetailViewController.swift */,
 			);
 			path = Controller;
@@ -148,6 +159,7 @@
 				90A7296F28C2D58D00C8F76C /* Frameworks */,
 				90A7297028C2D58D00C8F76C /* Resources */,
 				61201F3D041D099A1E8D7336 /* [CP] Embed Pods Frameworks */,
+				9084878228D5A1380036135E /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -222,6 +234,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movice/Pods-movice-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9084878228D5A1380036135E /* Run Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n    \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n    echo \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		BCB194DD984A72867C86C535 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,9 +286,10 @@
 				90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */,
 				90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */,
 				900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */,
+				9084878928D5D3100036135E /* DarkenImage.swift in Sources */,
 				9084877A28CA21350036135E /* WatchlistData.swift in Sources */,
 				90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */,
-				90DEE38828C9B60C005D2CC3 /* GetImageByUrlController.swift in Sources */,
+				90DEE38828C9B60C005D2CC3 /* ImageUtil.swift in Sources */,
 				90A7299228C6C52900C8F76C /* MovieData.swift in Sources */,
 				90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */,
 			);
@@ -408,6 +439,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJX84B9HYC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = movice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -437,6 +469,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZJX84B9HYC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = movice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

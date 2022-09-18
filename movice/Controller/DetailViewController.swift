@@ -15,16 +15,16 @@ class DetailViewController: UIViewController {
     let realm = try! Realm()
     var alreadyAdd = false
     
-    @IBOutlet weak var poster: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var releaseLabel: UILabel!
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var addToWatchlistButton: UIButton!
+    @IBOutlet private weak var poster: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var releaseLabel: UILabel!
+    @IBOutlet private weak var overviewLabel: UILabel!
+    @IBOutlet private weak var addToWatchlistButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        poster.image = getImageByUrl().getImageByUrl(url: selectedMoive.poster_path, dark: false, size: "300")
+        poster.image = ImageUtil().getImageByUrl(url: selectedMoive.poster_path, dark: false, size: "300")
         titleLabel.text = selectedMoive.title
         releaseLabel.text = "公開日　\(selectedMoive.release_date)"
         overviewLabel.text = selectedMoive.overview
@@ -32,10 +32,8 @@ class DetailViewController: UIViewController {
         watchlistMovie = realm.objects(WatchlistData.self)
         
         watchlistMovie = watchlistMovie?.filter("title CONTAINS[cd] %@", selectedMoive.title)
-        
-        if watchlistMovie?.isEmpty == false {
-            alreadyAdd = true
-        }
+    
+        alreadyAdd = !(watchlistMovie?.isEmpty ?? false)
         
         addToWatchlistButton.titleLabel?.text = alreadyAdd ?  "ウォッチリストから削除" : "ウォッチリストに追加"
         
@@ -51,8 +49,7 @@ class DetailViewController: UIViewController {
                 try realm.write {
                     realm.delete(watchlistMovie!)
                     alreadyAdd = false
-                    self.loadView()
-                    self.viewDidLoad()
+                    addToWatchlistButton.setTitle("ウォッチリストに追加", for: .normal)
                 }
             } catch {
                 print("error delete watchlist \(error)")
@@ -67,15 +64,11 @@ class DetailViewController: UIViewController {
                 try realm.write {
                     realm.add(addMovie)
                     alreadyAdd = true
-                    self.loadView()
-                    self.viewDidLoad()
+                    addToWatchlistButton.setTitle("ウォッチリストから削除", for: .normal)
                 }
             } catch {
                 print("error add watchlist \(error)")
             }
         }
     }
-    
-    
-
 }

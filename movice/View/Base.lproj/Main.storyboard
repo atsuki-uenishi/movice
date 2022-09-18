@@ -126,22 +126,25 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="715"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="THj-Xx-1Dw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="429.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="420.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qH6-oq-mP3" userLabel="title">
-                                        <rect key="frame" x="0.0" y="429.5" width="414" height="29"/>
+                                        <rect key="frame" x="0.0" y="420.5" width="414" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cet-vR-ym9" userLabel="release">
-                                        <rect key="frame" x="0.0" y="458.5" width="414" height="24"/>
+                                        <rect key="frame" x="0.0" y="449.5" width="414" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw6-OR-hBR" userLabel="addToWatchlist">
-                                        <rect key="frame" x="0.0" y="482.5" width="414" height="31"/>
+                                        <rect key="frame" x="0.0" y="473.5" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="IE6-DP-T66"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="ウォッチリストに追加"/>
                                         <connections>
