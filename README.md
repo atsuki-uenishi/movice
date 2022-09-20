@@ -29,6 +29,8 @@
 | Swift | 5.5.2 |
 | iOS | 13.0以上 |
 | CocoaPods | 1.11.2 |
+| Swiftlint | 0.49.1 |
+| RealmSwift | 10.28.6 |
 
 ## 使用ライブラリ
 *Realm Swift*
