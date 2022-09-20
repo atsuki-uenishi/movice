@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     
         alreadyAdd = !(watchlistMovie?.isEmpty ?? false)
         
-        addToWatchlistButton.titleLabel?.text = alreadyAdd ?  "ウォッチリストから削除" : "ウォッチリストに追加"
+        addToWatchlistButton.titleLabel?.text = alreadyAdd ? "ウォッチリストから削除" : "ウォッチリストに追加"
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -43,11 +43,15 @@ class DetailViewController: UIViewController {
    
     
     
-    @IBAction func addWatchlist(_ sender: UIButton) {
+    @IBAction private func addWatchlist(_ sender: UIButton) {
         if alreadyAdd {
+            guard let watchlistMovie = self.watchlistMovie else {
+                print("watchlist not found")
+                return
+            }
             do {
                 try realm.write {
-                    realm.delete(watchlistMovie!)
+                    realm.delete(watchlistMovie)
                     alreadyAdd = false
                     addToWatchlistButton.setTitle("ウォッチリストに追加", for: .normal)
                 }

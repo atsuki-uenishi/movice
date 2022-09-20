@@ -10,7 +10,7 @@
 		80488BD867000BDCE62C8D07 /* Pods_movice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C38B2989B3FFE255C90461E /* Pods_movice.framework */; };
 		900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */; };
 		9084877A28CA21350036135E /* WatchlistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084877928CA21350036135E /* WatchlistData.swift */; };
-		9084878928D5D3100036135E /* DarkenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084878828D5D3100036135E /* DarkenImage.swift */; };
+		9084878928D5D3100036135E /* UIImage+DarkenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9084878828D5D3100036135E /* UIImage+DarkenExtension.swift */; };
 		90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297528C2D58D00C8F76C /* AppDelegate.swift */; };
 		90A7297828C2D58D00C8F76C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297728C2D58D00C8F76C /* SceneDelegate.swift */; };
 		90A7297A28C2D58D00C8F76C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7297928C2D58D00C8F76C /* SearchViewController.swift */; };
@@ -28,7 +28,7 @@
 		5C38B2989B3FFE255C90461E /* Pods_movice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		900BDA9E28C79B20000EC051 /* MovieDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataRepository.swift; sourceTree = "<group>"; };
 		9084877928CA21350036135E /* WatchlistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistData.swift; sourceTree = "<group>"; };
-		9084878828D5D3100036135E /* DarkenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkenImage.swift; sourceTree = "<group>"; };
+		9084878828D5D3100036135E /* UIImage+DarkenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DarkenExtension.swift"; sourceTree = "<group>"; };
 		90A7297228C2D58D00C8F76C /* movice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A7297528C2D58D00C8F76C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90A7297728C2D58D00C8F76C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,9 +71,16 @@
 			isa = PBXGroup;
 			children = (
 				90DEE38728C9B60C005D2CC3 /* ImageUtil.swift */,
-				9084878828D5D3100036135E /* DarkenImage.swift */,
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		9084878C28D95F150036135E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9084878828D5D3100036135E /* UIImage+DarkenExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		90A7296928C2D58D00C8F76C = {
@@ -103,6 +110,7 @@
 				90A7298B28C2D60200C8F76C /* View */,
 				90A7298A28C2D5F100C8F76C /* Controller */,
 				9084878728D5D1F30036135E /* Lib */,
+				9084878C28D95F150036135E /* Extension */,
 				90A7297E28C2D58F00C8F76C /* Assets.xcassets */,
 				90A7298028C2D58F00C8F76C /* LaunchScreen.storyboard */,
 				90A7298328C2D58F00C8F76C /* Info.plist */,
@@ -286,7 +294,7 @@
 				90A7297628C2D58D00C8F76C /* AppDelegate.swift in Sources */,
 				90A7299028C5882300C8F76C /* WatchListViewController.swift in Sources */,
 				900BDA9F28C79B20000EC051 /* MovieDataRepository.swift in Sources */,
-				9084878928D5D3100036135E /* DarkenImage.swift in Sources */,
+				9084878928D5D3100036135E /* UIImage+DarkenExtension.swift in Sources */,
 				9084877A28CA21350036135E /* WatchlistData.swift in Sources */,
 				90A7299428C6C6B000C8F76C /* MovieApiManager.swift in Sources */,
 				90DEE38828C9B60C005D2CC3 /* ImageUtil.swift in Sources */,

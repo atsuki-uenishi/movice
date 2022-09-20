@@ -143,7 +143,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw6-OR-hBR" userLabel="addToWatchlist">
                                         <rect key="frame" x="0.0" y="473.5" width="414" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="414" id="IE6-DP-T66"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="IE6-DP-T66"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="ウォッチリストに追加"/>
@@ -229,9 +229,6 @@
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" systemColor="systemGray2Color"/>
-                        </tabBarAppearance>
-                        <tabBarAppearance key="scrollEdgeAppearance">
                             <color key="backgroundColor" systemColor="systemGray2Color"/>
                         </tabBarAppearance>
                     </tabBar>

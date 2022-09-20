@@ -15,7 +15,9 @@ final class MovieDataRepository {
     
     func getMoiveData(title: String, completion: @escaping ComletionHandler<MovieData>) {
         provider.request(.getMovieTitle(title: title)) { [weak self] result in
-            guard let self = self else {return}
+            guard let self = self else {
+                return
+            }
             switch result {
             case let .success(response):
                 completion(self.decodeResponseToMovieData(response:response))
@@ -33,7 +35,7 @@ final class MovieDataRepository {
             let response = try response.filterSuccessfulStatusAndRedirectCodes()
             let movieData = try response.map(MovieData.self)
             return .success(movieData)
-        } catch let error {
+        } catch let error as NSError {
             let moyaError = error as! MoyaError
             return .failure(moyaError)
         }

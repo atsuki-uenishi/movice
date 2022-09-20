@@ -44,6 +44,6 @@ extension MovieApiManager: TargetType {
     }
  
     var headers: [String : String]? {
-        return ["Content-type": "application/json"]
+        ["Content-type": "application/json"]
     }
 }

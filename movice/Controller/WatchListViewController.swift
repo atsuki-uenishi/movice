@@ -13,7 +13,7 @@ class WatchListViewController: UIViewController {
     let realm = try! Realm()
     var watchlist: Results<WatchlistData>?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,7 @@ class WatchListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadWatchlist()
     }
     
@@ -38,30 +39,29 @@ class WatchListViewController: UIViewController {
         
         let destinationVC = segue.destination as! DetailViewController
         
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let watchlistMoive = watchlist![indexPath.row]
-            let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
-            destinationVC.selectedMoive = movieDataConversion
+        if let watchlist = self.watchlist {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let watchlistMoive = watchlist[indexPath.row]
+                let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
+                destinationVC.selectedMoive = movieDataConversion
+            }
         }
     }
-
-
 }
 
 extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
       }
       
       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlist?.count ?? 1
+          self.watchlist?.count ?? 1
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
           guard let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath) as UITableViewCell?,
-          let safeWatchlist = watchlist
+                let safeWatchlist = self.watchlist
           else {
               return UITableViewCell()
           }
@@ -79,6 +79,6 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "goToDetail", sender: self)
     }
     
-    
-    
 }
+
+

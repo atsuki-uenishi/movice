@@ -10,11 +10,12 @@ import Moya
 
 class SearchViewController: UIViewController {
     
-    @IBOutlet weak var titleSearchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var titleSearchBar: UISearchBar!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     let movieDataRepository = MovieDataRepository()
     var searchResult: [Movie] = []
+    var indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,11 @@ class SearchViewController: UIViewController {
         titleSearchBar.delegate = self
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
+        indicator.center = view.center
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.color = .blue
+        view.addSubview(indicator)
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
@@ -34,17 +40,17 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
         let horizontalSpace:CGFloat = 5
 
-        let cellSize:CGFloat = self.view.bounds.width/2 - horizontalSpace
+        let cellSize:CGFloat = self.view.bounds.width / 2 - horizontalSpace
 
         return CGSize(width: cellSize, height: cellSize)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return 1
+            1
         }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResult.count
+        searchResult.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,17 +90,28 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let title = searchBar.text {
-            getMovieData(title: title)
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
+            if title.isEmpty {
+                searchResult = []
+                collectionView.reloadData()
+            } else {
+                indicator.startAnimating()
+                DispatchQueue.global().async {
+                    self.getMovieData(title: title)
+                    DispatchQueue.main.async {
+                        searchBar.resignFirstResponder()
+                        self.indicator.stopAnimating()
+                    }
+                }
             }
         }
     }
     
-    //映画情報の取得
+    // 映画情報の取得
     func getMovieData(title: String) {
         movieDataRepository.getMoiveData(title: title) { [weak self] result in
-            guard let self = self else {return}
+            guard let self = self else {
+                return
+            }
             switch result {
             case .success(let movieData):
                 self.searchResult = movieData.results
