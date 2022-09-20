@@ -31,6 +31,7 @@
 | CocoaPods | 1.11.2 |
 | Swiftlint | 0.49.1 |
 | RealmSwift | 10.28.6 |
+| Moya | 15.0.0 |
 
 ## 使用ライブラリ
 *Realm Swift*
