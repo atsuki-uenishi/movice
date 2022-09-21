@@ -95,12 +95,9 @@ extension SearchViewController: UISearchBarDelegate {
                 collectionView.reloadData()
             } else {
                 indicator.startAnimating()
-                DispatchQueue.global().async {
+                searchBar.resignFirstResponder()
+                DispatchQueue.global(qos: .background).async {
                     self.getMovieData(title: title)
-                    DispatchQueue.main.async {
-                        searchBar.resignFirstResponder()
-                        self.indicator.stopAnimating()
-                    }
                 }
             }
         }
@@ -115,6 +112,9 @@ extension SearchViewController: UISearchBarDelegate {
             switch result {
             case .success(let movieData):
                 self.searchResult = movieData.results
+                DispatchQueue.main.async {
+                    self.indicator.stopAnimating()
+                }
                 self.collectionView.reloadData()
             case .failure(let moyaError):
                 print(moyaError.localizedDescription)
