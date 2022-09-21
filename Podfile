@@ -8,5 +8,6 @@ target 'movice' do
   # Pods for movice
   pod 'Moya', '~> 15.0'
   pod 'RealmSwift'
+  pod 'SwiftLint'
 
 end

@@ -11,17 +11,9 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        do{
-            let realm = try Realm()
-        } catch {
-            print("realm error \(error)")
-        }
-        
-        return true
+        true
     }
 
     // MARK: UISceneSession Lifecycle
