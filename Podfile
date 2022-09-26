@@ -9,5 +9,6 @@ target 'movice' do
   pod 'Moya', '~> 15.0'
   pod 'RealmSwift'
   pod 'SwiftLint'
+  pod 'Nuke'
 
 end
