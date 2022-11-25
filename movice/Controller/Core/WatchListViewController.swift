@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import CoreMedia
 
 class WatchListViewController: UIViewController {
 
@@ -69,14 +70,18 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
           let image = cell.contentView.viewWithTag(1) as! UIImageView
           let label = cell.contentView.viewWithTag(2) as! UILabel
           
-          image.image = ImageUtil().getImageByUrl(url: safeWatchlist[indexPath.row].poster, dark: true, size: "154")
+          image.image = ImageUtil().getImageByUrl(url: safeWatchlist[indexPath.row].poster, size: "154")
           label.text = safeWatchlist[indexPath.row].title
         
         return cell
       }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToDetail", sender: self)
+//        DispatchQueue.main.async {
+//            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+//            detailVC.selectedMoive = self.watchlist[indexPath.row]
+//            self.navigationController?.pushViewController(detailVC, animated: true)
+//        }
     }
     
 }

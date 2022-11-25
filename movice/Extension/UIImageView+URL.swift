@@ -18,6 +18,15 @@ extension UIImageView {
     }
     
     func loadImage(with url: URL) {
-        Nuke.loadImage(with: url, into: self)
+        Nuke.loadImage(with: url, into: self) { (result: Result<ImageResponse, ImagePipeline.Error>) in
+            switch result {
+            case .success(let success):
+                self.image = success.image
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 }
+
+

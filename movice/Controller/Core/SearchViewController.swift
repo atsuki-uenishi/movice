@@ -10,8 +10,10 @@ import Moya
 
 class SearchViewController: UIViewController {
     
+   
     @IBOutlet private weak var titleSearchBar: UISearchBar!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
     
     let movieDataRepository = MovieDataRepository()
     var searchResult: [Movie] = []
@@ -20,7 +22,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleSearchBar.delegate = self
+        titleSearchBar?.delegate = self
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
@@ -74,17 +76,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "toDetail", sender: self)
+        DispatchQueue.main.async {
+            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+            detailVC.selectedMoive = self.searchResult[indexPath[1]]
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! DetailViewController
-        
-        if let indexPath = collectionView.indexPathsForSelectedItems {
-            destinationVC.selectedMoive = searchResult[indexPath[0][1]]
-         
-        }
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

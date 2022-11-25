@@ -28,6 +28,48 @@ final class MovieDataRepository {
         }
     }
     
+    func getPopularMovie(completion: @escaping ComletionHandler<MovieData>) {
+        provider.request(.getPopularMovie) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case let .success(response):
+                completion(self.decodeResponseToMovieData(response: response))
+            case let .failure(moyaError):
+                completion(.failure(moyaError))
+            }
+        }
+    }
+    
+    func getUpcomingMovie(completion: @escaping ComletionHandler<MovieData>) {
+        provider.request(.getUpcomingMovie) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case let .success(response):
+                completion(self.decodeResponseToMovieData(response: response))
+            case let .failure(moyaError):
+                completion(.failure(moyaError))
+            }
+        }
+    }
+    
+    func getTopRatedMovie(completion: @escaping ComletionHandler<MovieData>) {
+        provider.request(.getTopRatedMovie) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case let .success(response):
+                completion(self.decodeResponseToMovieData(response: response))
+            case let .failure(moyaError):
+                completion(.failure(moyaError))
+            }
+        }
+    }
+    
     private func decodeResponseToMovieData(response: Response) -> Result<MovieData, MoyaError> {
         do {
             let decoder = JSONDecoder()

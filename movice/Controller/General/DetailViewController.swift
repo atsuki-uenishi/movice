@@ -24,7 +24,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        poster.image = ImageUtil().getImageByUrl(url: selectedMoive.poster_path, dark: false, size: "300")
+        configureNavbar()
+        
+        poster.image = ImageUtil().getImageByUrl(url: selectedMoive.poster_path, size: "300")
         titleLabel.text = selectedMoive.title
         releaseLabel.text = "公開日　\(selectedMoive.release_date)"
         overviewLabel.text = selectedMoive.overview
@@ -37,7 +39,12 @@ class DetailViewController: UIViewController {
         
         addToWatchlistButton.titleLabel?.text = alreadyAdd ? "ウォッチリストから削除" : "ウォッチリストに追加"
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func configureNavbar() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.backgroundColor = .black
     }
     
    
