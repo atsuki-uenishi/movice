@@ -64,9 +64,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         imageView.loadImage(urlString: movieInformation.poster_path)
         
-        imageView.image = imageView.image?.darkenImage(0.5)
-        
-        imageView.sizeToFit()
         
         let label = cell.contentView.viewWithTag(2) as! UILabel
     
