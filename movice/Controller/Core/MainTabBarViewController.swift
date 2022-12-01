@@ -20,11 +20,12 @@ class MainTabBarViewController: UITabBarController {
         let homeView = UIStoryboard(name: "HomeView", bundle: nil)
         let searchView = UIStoryboard(name: "SearchView", bundle: nil)
         let watchListView = UIStoryboard(name: "WatchListView", bundle: nil)
+        let reviewedView = UIStoryboard(name: "ReviewedView", bundle: nil)
         
         let vc1 = UINavigationController(rootViewController: homeView.instantiateViewController(withIdentifier: "HomeView"))
         let vc2 = UINavigationController(rootViewController: searchView.instantiateViewController(withIdentifier: "SearchView"))
         let vc3 = UINavigationController(rootViewController: watchListView.instantiateViewController(withIdentifier: "WatchListView"))
-        let vc4 = UINavigationController(rootViewController: ReviewedViewController())
+        let vc4 = UINavigationController(rootViewController: reviewedView.instantiateViewController(withIdentifier: "ReviewedView"))
         
         
         

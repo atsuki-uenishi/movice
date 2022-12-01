@@ -33,8 +33,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with url: String) {
-        let poster = ImageUtil().getImageByUrl(url: url, size: "500")
-        
-        posterImageView.image = poster
+        posterImageView.loadImage(urlString: url)
     }
 }

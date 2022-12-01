@@ -22,8 +22,8 @@ class WatchListViewController: UIViewController {
         
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.tableView.register(UINib(nibName: "WatchlistTableViewCell", bundle: nil), forCellReuseIdentifier: WatchlistTableViewCell.identifier)
+        configureNavbar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,23 +31,15 @@ class WatchListViewController: UIViewController {
         loadWatchlist()
     }
     
+    private func configureNavbar() {
+        navigationController?.navigationBar.backgroundColor = .clear
+    }
+    
     func loadWatchlist() {
         watchlist = realm.objects(WatchlistData.self)
         tableView.reloadData()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let destinationVC = segue.destination as! DetailViewController
-        
-        if let watchlist = self.watchlist {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let watchlistMoive = watchlist[indexPath.row]
-                let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
-                destinationVC.selectedMoive = movieDataConversion
-            }
-        }
-    }
 }
 
 extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -61,27 +53,35 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
       }
       
       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          guard let cell = tableView.dequeueReusableCell(withIdentifier: "watchlistCell", for: indexPath) as UITableViewCell?,
-                let safeWatchlist = self.watchlist
-          else {
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: WatchlistTableViewCell.identifier, for: indexPath) as? WatchlistTableViewCell else {
               return UITableViewCell()
           }
-        
-          let image = cell.contentView.viewWithTag(1) as! UIImageView
-          let label = cell.contentView.viewWithTag(2) as! UILabel
           
-          image.image = ImageUtil().getImageByUrl(url: safeWatchlist[indexPath.row].poster, size: "154")
-          label.text = safeWatchlist[indexPath.row].title
-        
-        return cell
+          if let watchlist = self.watchlist {
+              let watchlistMovie = watchlist[indexPath.row]
+              cell.configure(movie: watchlistMovie)
+          }
+          return cell
       }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        DispatchQueue.main.async {
-//            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
-//            detailVC.selectedMoive = self.watchlist[indexPath.row]
-//            self.navigationController?.pushViewController(detailVC, animated: true)
-//        }
+        
+        if let watchList = self.watchlist {
+            
+            let watchlistMoive = watchList[indexPath.row]
+            let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
+            DispatchQueue.main.async {
+                let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+                detailVC.selectedMoive = movieDataConversion
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            }
+            
+        } else {
+            return
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
     }
     
 }

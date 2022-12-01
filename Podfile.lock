@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.2)
+  - Cosmos (23.0.0)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
   - Moya/Core (15.0.0):
@@ -10,31 +11,42 @@ PODS:
   - Realm/Headers (10.28.6)
   - RealmSwift (10.28.6):
     - Realm (= 10.28.6)
+  - SnackBar.swift (0.1.0):
+    - SnapKit
+  - SnapKit (5.6.0)
   - SwiftLint (0.49.1)
 
 DEPENDENCIES:
+  - Cosmos
   - Moya (~> 15.0)
   - Nuke
   - RealmSwift
+  - SnackBar.swift
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Cosmos
     - Moya
     - Nuke
     - Realm
     - RealmSwift
+    - SnackBar.swift
+    - SnapKit
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   Realm: 9b12f16a14446d7d46a9e36225d0a0332a6ec739
   RealmSwift: 5927726fce21005f43b1fb57c832297a22031bfc
+  SnackBar.swift: 79ea4df13ea9e6633137dd6acbd490534d26440d
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
 
-PODFILE CHECKSUM: aa4635ca0493fd1813c8ea3524538b4155e44cdb
+PODFILE CHECKSUM: 7be8b984be9fe66e31ec51a73265eedf4ab8d101
 
 COCOAPODS: 1.11.2

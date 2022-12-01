@@ -32,13 +32,11 @@ class HomeViewController: UIViewController {
         homeTable.dataSource = self
         
         configureNavbar()
-        
-        
     }
     
     private func configureNavbar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.backgroundColor = .black
+        navigationController?.navigationBar.backgroundColor = .clear
     }
 }
 

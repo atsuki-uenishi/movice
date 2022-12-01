@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -47,44 +46,13 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wQU-Sd-Xms">
                                 <rect key="frame" x="0.0" y="210" width="414" height="686"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="5" id="sgE-ho-05b">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="50" minimumInteritemSpacing="5" id="sgE-ho-05b">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="sRB-O5-919">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Jng-xk-9Ij">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jl7-Gf-t3a" userLabel="poster">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwu-gy-LAQ" userLabel="title">
-                                                    <rect key="frame" x="0.0" y="54.5" width="128" height="19.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="128" id="gFz-Io-UGy"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="wwu-gy-LAQ" firstAttribute="centerY" secondItem="Jng-xk-9Ij" secondAttribute="centerY" id="1BV-Vv-fvO"/>
-                                                <constraint firstItem="jl7-Gf-t3a" firstAttribute="leading" secondItem="Jng-xk-9Ij" secondAttribute="leading" id="CzT-9a-Luy"/>
-                                                <constraint firstAttribute="bottom" secondItem="jl7-Gf-t3a" secondAttribute="bottom" id="Vuh-oc-zo8"/>
-                                                <constraint firstAttribute="trailing" secondItem="jl7-Gf-t3a" secondAttribute="trailing" id="XAN-bn-160"/>
-                                                <constraint firstItem="jl7-Gf-t3a" firstAttribute="top" secondItem="Jng-xk-9Ij" secondAttribute="top" id="Zvs-oi-5Qw"/>
-                                                <constraint firstItem="wwu-gy-LAQ" firstAttribute="centerX" secondItem="Jng-xk-9Ij" secondAttribute="centerX" id="kAK-Us-561"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="pZB-AH-71s" id="E3j-Mg-kAw"/>
                                     <outlet property="delegate" destination="pZB-AH-71s" id="GRd-IP-Lng"/>

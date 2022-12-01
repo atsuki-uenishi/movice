@@ -26,12 +26,17 @@ class SearchViewController: UIViewController {
         collectionView?.delegate = self
         collectionView?.dataSource = self
         
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
+        
         indicator.center = view.center
         indicator.style = UIActivityIndicatorView.Style.large
         indicator.color = .blue
         view.addSubview(indicator)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        configureNavbar()
+    }
+    
+    private func configureNavbar() {
+        navigationController?.navigationBar.backgroundColor = .clear
     }
     
 }
@@ -39,13 +44,14 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let horizontalSpace:CGFloat = 5
-
-        let cellSize:CGFloat = self.view.bounds.width / 2 - horizontalSpace
-
-        return CGSize(width: cellSize, height: cellSize)
+        
+        let horizontalSpace: CGFloat = 5
+        
+        let cellSize:CGFloat = UIScreen.main.bounds.width / 3 - horizontalSpace
+        
+        return CGSize(width: cellSize, height: cellSize + 50)
     }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             1
@@ -56,20 +62,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as UICollectionViewCell? else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as? SearchCollectionViewCell else {
             return UICollectionViewCell()
         }
         
         let movieInformation = searchResult[indexPath.row]
         
-        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-        
-        imageView.loadImage(urlString: movieInformation.poster_path)
-        
-        
-        let label = cell.contentView.viewWithTag(2) as! UILabel
-    
-        label.text = movieInformation.title
+        cell.configure(movie: movieInformation)
         
         return cell
     }

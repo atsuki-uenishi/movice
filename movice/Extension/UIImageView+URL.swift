@@ -10,7 +10,7 @@ import Nuke
 
 extension UIImageView {
     func loadImage(urlString: String) {
-        let posterSizeUrl = "https://image.tmdb.org/t/p/w154"
+        let posterSizeUrl = "https://image.tmdb.org/t/p/w500"
         guard let url = URL(string: posterSizeUrl + urlString) else {
             return 
         }
