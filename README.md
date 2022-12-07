@@ -3,6 +3,7 @@
 
 ## 概要
 映画の情報をウォッチリストに追加して、保存することができる。
+
 apple store: https://apps.apple.com/app/movice/id6443401413
 
 ## 環境構築
