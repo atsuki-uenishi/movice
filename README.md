@@ -32,6 +32,9 @@
 | Swiftlint | 0.49.1 |
 | RealmSwift | 10.28.6 |
 | Moya | 15.0.0 |
+| Cosmos | 23.0.0 |
+| Nuke | 10.7.1 | 
+| Snackbar | 0.1.0 |
 
 ## 使用ライブラリ
 *Realm Swift*
@@ -41,6 +44,19 @@
 *Moya*
 
 API通信を行うライブラリです。
+
+*Cosmos*
+
+レーティングUIのライブラリです。
+
+*Nuke*
+
+画像ロードライブラリです。
+
+*Snackbar*
+
+Snackbarのライブラリです。
+
 ## バージョン管理
 GitHubを使用
 
