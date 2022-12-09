@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import CoreMedia
 
 class WatchListViewController: UIViewController {
 
@@ -29,6 +28,7 @@ class WatchListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadWatchlist()
+        tableView.reloadData()
     }
     
     private func configureNavbar() {

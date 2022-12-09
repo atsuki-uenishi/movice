@@ -12,5 +12,6 @@ target 'movice' do
   pod 'Nuke'
   pod 'Cosmos'
   pod 'SnackBar.swift'
+  pod 'SwiftGen'
 
 end

@@ -75,11 +75,9 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        DispatchQueue.main.async {
-            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
-            detailVC.selectedMoive = self.searchResult[indexPath[1]]
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
+        let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        detailVC.selectedMoive = self.searchResult[indexPath[1]]
+        self.navigationController?.pushViewController(detailVC, animated: true)
 
     }
     

@@ -24,58 +24,16 @@ class ReviewedTableViewCell: UITableViewCell {
         dateLabel.text = date
         reviewlabel.text = review
         
+        ratingLabel.text = getStar(by: rating)
+    }
+    
+    private func getStar(by score: Double) -> String {
         let star = "⭐️"
         let blackstar = "★"
-        
-        switch rating {
-        case 1:
-            var text = ""
-            text.append(star)
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            ratingLabel.text = text
-        case 2:
-            var text = ""
-            text.append(star)
-            text.append(star)
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            ratingLabel.text = text
-        case 3:
-            var text = ""
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            text.append(blackstar)
-            text.append(blackstar)
-            ratingLabel.text = text
-        case 4:
-            var text = ""
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            text.append(blackstar)
-            ratingLabel.text = text
-        case 5:
-            var text = ""
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            text.append(star)
-            ratingLabel.text = text
-        default:
-            var text = ""
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            text.append(blackstar)
-            ratingLabel.text = text
+        var stars = [blackstar, blackstar, blackstar, blackstar, blackstar]
+        for i in 0 ..< Int(score) {
+            stars[i] = star
         }
+        return stars.joined()
     }
 }

@@ -67,11 +67,9 @@ extension ReviewedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let reviewedMovies = self.reviewedMovies {
             
-            DispatchQueue.main.async {
-                let reviewedDetailVC = UIStoryboard(name: "ReviewedDetailView", bundle: nil).instantiateViewController(withIdentifier: "ReviewedDetailView") as! ReviewedDetailViewController
-                reviewedDetailVC.reviewedMovie = reviewedMovies[indexPath.row]
-                self.navigationController?.pushViewController(reviewedDetailVC, animated: true)
-            }
+            let reviewedDetailVC = UIStoryboard(name: "ReviewedDetailView", bundle: nil).instantiateViewController(withIdentifier: "ReviewedDetailView") as! ReviewedDetailViewController
+            reviewedDetailVC.reviewedMovie = reviewedMovies[indexPath.row]
+            self.navigationController?.pushViewController(reviewedDetailVC, animated: true)
             
         } else {
             return
