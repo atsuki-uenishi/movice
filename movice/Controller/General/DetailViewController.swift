@@ -65,7 +65,7 @@ class DetailViewController: UIViewController {
     
    
     @IBAction private func toReview(_ sender: UIButton) {
-        let modalVC = UIStoryboard(name: "ReviewView", bundle: nil).instantiateViewController(withIdentifier: "ReviewView") as! ReviewViewController
+        let modalVC = StoryboardScene.ReviewView.initialScene.instantiate()
         modalVC.modalPresentationStyle = .formSheet
         if alreadyReview {
             modalVC.reviewedMovie = reviewedMovie?.first

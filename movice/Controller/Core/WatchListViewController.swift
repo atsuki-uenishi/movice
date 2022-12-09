@@ -71,7 +71,7 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
             let watchlistMoive = watchList[indexPath.row]
             let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
             DispatchQueue.main.async {
-                let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+                let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
                 detailVC.selectedMoive = movieDataConversion
                 self.navigationController?.pushViewController(detailVC, animated: true)
             }

@@ -141,7 +141,7 @@ extension HomeViewController: HeaderTableViewCellDelegate {
     
     func headerTableViewCellDidTapCell(_ cell: HeaderTableViewCell, movie: Movie) {
         DispatchQueue.main.async { [weak self] in
-            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+            let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
             detailVC.selectedMoive = movie
             self?.navigationController?.pushViewController(detailVC, animated: true)
         }
@@ -152,7 +152,7 @@ extension HomeViewController: CollectionViewTableViewCellDelegate {
     
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, movie: Movie) {
         DispatchQueue.main.async { [weak self] in
-            let detailVC = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+            let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
             detailVC.selectedMoive = movie
             self?.navigationController?.pushViewController(detailVC, animated: true)
         }

@@ -75,7 +75,7 @@ class ReviewedDetailViewController: UIViewController {
     }
     
     @IBAction private func reviewChangeButtonTapped(_ sender: UIButton) {
-        let modalVC = UIStoryboard(name: "ReviewView", bundle: nil).instantiateViewController(withIdentifier: "ReviewView") as! ReviewViewController
+        let modalVC = StoryboardScene.ReviewView.initialScene.instantiate()
         modalVC.modalPresentationStyle = .formSheet
         modalVC.reviewedMovie = reviewedMovie
         modalVC.presentationController?.delegate = self
