@@ -37,6 +37,7 @@ apple store: https://apps.apple.com/app/movice/id6443401413
 | Cosmos | 23.0.0 |
 | Nuke | 10.7.1 | 
 | Snackbar | 0.1.0 |
+| SwiftGen | 6.6.2 |
 
 ## 使用ライブラリ
 *Realm Swift*
