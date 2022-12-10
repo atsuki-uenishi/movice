@@ -65,15 +65,12 @@ extension ReviewedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let reviewedMovies = self.reviewedMovies {
-            
-            let reviewedDetailVC = StoryboardScene.ReviewedDetailView.initialScene.instantiate()
-            reviewedDetailVC.reviewedMovie = reviewedMovies[indexPath.row]
-            self.navigationController?.pushViewController(reviewedDetailVC, animated: true)
-            
-        } else {
+        guard let reviewedMovies = self.reviewedMovies else  {
             return
         }
+        let reviewedDetailVC = StoryboardScene.ReviewedDetailView.initialScene.instantiate()
+        reviewedDetailVC.reviewedMovie = reviewedMovies[indexPath.row]
+        self.navigationController?.pushViewController(reviewedDetailVC, animated: true)
     }
     
     

@@ -66,18 +66,16 @@ extension WatchListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let watchList = self.watchlist {
-            
-            let watchlistMoive = watchList[indexPath.row]
-            let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
-            DispatchQueue.main.async {
-                let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
-                detailVC.selectedMoive = movieDataConversion
-                self.navigationController?.pushViewController(detailVC, animated: true)
-            }
-            
-        } else {
+        guard let watchList = self.watchlist else {
             return
+        }
+        
+        let watchlistMoive = watchList[indexPath.row]
+        let movieDataConversion = Movie(title: watchlistMoive.title, poster_path: watchlistMoive.poster, release_date: watchlistMoive.releaseDate, overview: watchlistMoive.overview)
+        DispatchQueue.main.async {
+            let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
+            detailVC.selectedMoive = movieDataConversion
+            self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
