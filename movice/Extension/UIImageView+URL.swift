@@ -10,7 +10,7 @@ import Nuke
 
 extension UIImageView {
     func loadImage(urlString: String) {
-        let posterSizeUrl = "https://image.tmdb.org/t/p/w154"
+        let posterSizeUrl = "https://image.tmdb.org/t/p/w500"
         guard let url = URL(string: posterSizeUrl + urlString) else {
             return 
         }
@@ -18,6 +18,15 @@ extension UIImageView {
     }
     
     func loadImage(with url: URL) {
-        Nuke.loadImage(with: url, into: self)
+        Nuke.loadImage(with: url, into: self) { (result: Result<ImageResponse, ImagePipeline.Error>) in
+            switch result {
+            case .success(let success):
+                self.image = success.image
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 }
+
+

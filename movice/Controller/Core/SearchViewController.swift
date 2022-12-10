@@ -10,8 +10,10 @@ import Moya
 
 class SearchViewController: UIViewController {
     
+   
     @IBOutlet private weak var titleSearchBar: UISearchBar!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
     
     let movieDataRepository = MovieDataRepository()
     var searchResult: [Movie] = []
@@ -20,16 +22,21 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleSearchBar.delegate = self
+        titleSearchBar?.delegate = self
         collectionView?.delegate = self
         collectionView?.dataSource = self
+        
+        collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
         
         indicator.center = view.center
         indicator.style = UIActivityIndicatorView.Style.large
         indicator.color = .blue
         view.addSubview(indicator)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        configureNavbar()
+    }
+    
+    private func configureNavbar() {
+        navigationController?.navigationBar.backgroundColor = .clear
     }
     
 }
@@ -37,13 +44,14 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let horizontalSpace:CGFloat = 5
-
-        let cellSize:CGFloat = self.view.bounds.width / 2 - horizontalSpace
-
-        return CGSize(width: cellSize, height: cellSize)
+        
+        let horizontalSpace: CGFloat = 5
+        
+        let cellSize:CGFloat = UIScreen.main.bounds.width / 3 - horizontalSpace
+        
+        return CGSize(width: cellSize, height: cellSize + 50)
     }
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
             1
@@ -54,37 +62,25 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as UICollectionViewCell? else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as? SearchCollectionViewCell else {
             return UICollectionViewCell()
         }
         
         let movieInformation = searchResult[indexPath.row]
         
-        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-        
-        imageView.loadImage(urlString: movieInformation.poster_path)
-        
-        
-        let label = cell.contentView.viewWithTag(2) as! UILabel
-    
-        label.text = movieInformation.title
+        cell.configure(movie: movieInformation)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "toDetail", sender: self)
+        let detailVC = StoryboardScene.DetailView.initialScene.instantiate()
+        detailVC.selectedMoive = self.searchResult[indexPath[1]]
+        self.navigationController?.pushViewController(detailVC, animated: true)
+
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! DetailViewController
-        
-        if let indexPath = collectionView.indexPathsForSelectedItems {
-            destinationVC.selectedMoive = searchResult[indexPath[0][1]]
-         
-        }
-    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

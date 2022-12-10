@@ -10,5 +10,8 @@ target 'movice' do
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'Nuke'
+  pod 'Cosmos'
+  pod 'SnackBar.swift'
+  pod 'SwiftGen'
 
 end

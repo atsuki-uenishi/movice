@@ -1,0 +1,7 @@
+ib:
+  inputs: movice/View
+  outputs:
+    - templateName: scenes-swift5
+      output: movice/Generated/StoryboardScenes.swift
+    - templateName: segues-swift5
+      output: movice/Generated/StoryboardSegues.swift
